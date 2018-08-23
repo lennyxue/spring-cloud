@@ -1,0 +1,13 @@
+version: '3'
+services:
+  sc-disco:
+    image: lenny/sc-disco
+    restart: always
+    ports:
+      - 8761:8761
+
+  sc-hi:
+    image: lenny/sc-hi
+    restart: always
+    ports:
+      - 8762:8762

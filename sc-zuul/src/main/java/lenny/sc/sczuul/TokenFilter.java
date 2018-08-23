@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Component
+//@Component
 public class TokenFilter extends ZuulFilter {
     private org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
 

@@ -12,6 +12,7 @@ public class ScRibbonController {
 
     @RequestMapping(value = "/hi")
     public String hi(@RequestParam String name){
+        System.out.println("Ribbon is invoked " + name);
         return ribbonTestService.hiService(name);
     }
 }

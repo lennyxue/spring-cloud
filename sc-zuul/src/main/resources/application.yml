@@ -10,8 +10,8 @@ spring:
 zuul:
     routes:
         api-a:
-            path: /api-ribbon/**
+            path: /api-ribbon/**  #http://localhost:8769/api-ribbon/hi?name=lenny
             serviceId: sc-ribbon
         api-b:
-            path: /api-feign/**
+            path: /api-feign/** #http://localhost:8769/api-feign/hi?name=lenny
             serviceId: sc-feign
