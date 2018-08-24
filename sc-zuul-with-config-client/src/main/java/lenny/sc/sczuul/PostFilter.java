@@ -1,19 +1,18 @@
 package lenny.sc.sczuul;
 
-import ch.qos.logback.classic.Logger;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-//@Component
-public class TokenFilter extends ZuulFilter {
+@Component
+public class PostFilter extends ZuulFilter {
     private org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
 
     @Override
     public String filterType() {
-        return "pre";
+        return "post";
     }
 
     @Override
@@ -30,10 +29,10 @@ public class TokenFilter extends ZuulFilter {
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
-        Object accessToken = request.getParameter("token");
+        log.info(String.format("Postfilter is invoked, %s >>> %s", request.getMethod(), request.getRequestURL().toString()));
+        Object accessToken = request.getParameter("name");
         if (accessToken == null) {
-            log.warn("token is empty");
+            log.warn("name is empty");
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
             try {
@@ -44,6 +43,6 @@ public class TokenFilter extends ZuulFilter {
             return null;
         }
         log.info("ok");
-        return null;
+        return "OK";
     }
 }

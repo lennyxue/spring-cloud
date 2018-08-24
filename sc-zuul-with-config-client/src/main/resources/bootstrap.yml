@@ -1,0 +1,11 @@
+spring :
+  cloud :
+    config :
+      uri : http://localhost:8770
+      name : zuul
+      profile : prod
+      lable : master
+
+management:
+  security:
+    enabled : false  # with false,  access http://localhost:8769/env could view all env info

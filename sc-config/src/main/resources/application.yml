@@ -1,0 +1,18 @@
+server:
+  port: 8770
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+  environment: dev
+spring:
+  application:
+    name: sc-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lennyxue/config-store.git # open browser with http://localhost:8770/master/zuul-prod.yml
