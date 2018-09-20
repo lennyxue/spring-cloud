@@ -11,3 +11,6 @@ eureka:
 spring:
   application:
     name: sc-hi
+  redis:
+    host: 10.1.5.251
+    port: 6380
