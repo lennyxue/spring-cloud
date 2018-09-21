@@ -12,5 +12,7 @@ spring:
   application:
     name: sc-hi
   redis:
-    host: 10.1.5.251
-    port: 6380
+    host: 10.9.20.61
+    port: 7379 #primary
+#    port: 7380 # slave
+    password: Fpyadmin@321
